@@ -40,40 +40,21 @@
         .btn-call { background: var(--ha-red); color: white; border-radius: 50px; font-weight: 800; font-size: 0.85rem; transition: 0.3s; box-shadow: 0 4px 15px rgba(211, 29, 16, 0.3); }
         .btn-call:hover { background: var(--ha-dark); color: var(--ha-yellow); transform: translateY(-2px); }
 
-        .hero-split { background-color: var(--ha-yellow); padding: 0px 0; position: relative; }
+        .hero-split { background-color: var(--ha-yellow); padding: 0; position: relative; }
         .hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 0.9; margin-bottom: 25px; color: var(--ha-dark); }
         .hero-content { padding: 100px 0; }
         .hero-img { 
             object-fit: cover; 
             height: 100%; 
-            min-height: 400px; /* Shorter for mobile */
-            border-radius: 0; /* Default for mobile */
+            min-height: 550px; /* Adjusted to ensure it covers the text area */
+            max-height: 600px;
+            border-radius: 100px 0 100px 0;
             display: block;
-            transition: transform 6s ease; /* For the slow zoom effect */
         }
 
-        /* Desktop specific tweaks */
-        @media (min-width: 768px) {
-            .hero-img { 
-                min-height: 600px; 
-                border-radius: 0; 
-            }
-            .hero-content { padding: 120px 0; }
-        }
-
-        /* Ken Burns Effect: Slow zoom on the active slide */
-        .carousel-item.active .hero-img {
-            transform: scale(1.1);
-        }
-
-        /* Smoother Fade Transition */
-        .carousel-fade .carousel-item {
-            opacity: 0;
-            transition-duration: 1.5s;
-            transition-property: opacity;
-        }
-        .carousel-fade .carousel-item.active {
-            opacity: 1;
+        /* Ensure the carousel doesn't jump during fade */
+        .carousel-item {
+            transition: opacity 0.8s ease-in-out;
         }
 
         .trust-bar { background: var(--ha-dark); color: white; padding: 40px 0; margin-bottom: 0; border-bottom: 5px solid var(--ha-red); }
@@ -170,27 +151,27 @@
     <header class="hero-split">
         <div class="container">
             <div class="row align-items-center g-0">
-                <div class="col-md-6 hero-content pe-lg-5 order-2 order-md-1">
+                <div class="col-md-6 hero-content pe-lg-5">
                     <h1 class="hero-title">BUILDING THE<br>FUTURE OF<br>SEBOKENG</h1>
                     <button class="btn btn-dark btn-lg px-4 py-3 mt-3 fw-bold" data-bs-toggle="modal" data-bs-target="#quoteModal">REQUEST A BULK QUOTE</button>
                 </div>
-                <div class="col-md-6 order-1 order-md-2">
+                <div class="col-md-6 d-none d-md-block">
                     <div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-bs-interval="4000">
-                                <img src="assets/hero_slide/slide-1.png" class="hero-img w-100" alt="Building materials">
+                                <img src="assets/hero_slide/slide-1.png" class="hero-img w-100" alt="59th Birthday Special">
                             </div>
-                            <div class="carousel-item" data-bs-interval="4000">
-                                <img src="assets/hero_slide/slide-2.webp" class="hero-img w-100" alt="Hardware supplies">
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <img src="assets/hero_slide/slide-2.webp" class="hero-img w-100" alt="Gardening Tools">
                             </div>
-                            <div class="carousel-item" data-bs-interval="4000">
-                                <img src="assets/hero_slide/slide-3.webp" class="hero-img w-100" alt="Construction site">
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <img src="assets/hero_slide/slide-3.webp" class="hero-img w-100" alt="Paints">
                             </div>
-                            <div class="carousel-item" data-bs-interval="4000">
+                            <div class="carousel-item" data-bs-interval="3000">
                                 <img src="assets/hero_slide/slide-4.webp" class="hero-img w-100" alt="Quality tools">
                             </div>
-                            <div class="carousel-item" data-bs-interval="4000">
-                                <img src="assets/hero_slide/slide-5.webp" class="hero-img w-100" alt="Family service">
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <img src="assets/hero_slide/slide-5.webp" class="hero-img w-100" alt="Chota Road Repair Community Service">
                             </div>
                         </div>
                     </div>
